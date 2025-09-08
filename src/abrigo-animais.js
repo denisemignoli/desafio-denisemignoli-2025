@@ -14,6 +14,17 @@ class AbrigoAnimais {
     let brinquedosP1 = brinquedosPessoa1.split(',');
     let brinquedosP2 = brinquedosPessoa2.split(',');
     let ordem = ordemAnimais.split(',');
+
+    if (new Set(ordem).size !== ordem.length) {
+      return { erro: 'Animal inválido' };
+    }
+
+    for (let i = 0; i < ordem.length; i++) {
+      const nomeAnimal = ordem[i];
+      if (!this.animaisMap.has(nomeAnimal)) {
+        return { erro: 'Animal inválido' };
+      }
+    }
   }
 }
 
